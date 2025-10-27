@@ -3,17 +3,16 @@ package com.example.orderservice.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "t_orders") // 'Order' SQL'de anahtar kelime olabileceği için tablo adını değiştirdik.
+@Table(name = "t_orders")
 public class Order {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String orderNumber;
-  private Long productId; // Sipariş edilen ürünün ID'si
-  private Integer quantity; // Sipariş miktarı
+  private Long productId;
+  private Integer quantity;
 
-  // --- Constructor'lar ---
   public Order() {
   }
 
@@ -23,7 +22,6 @@ public class Order {
     this.quantity = quantity;
   }
 
-  // --- Getter ve Setter Metotları ---
 
   public Long getId() { return id; }
   public void setId(Long id) { this.id = id; }

@@ -8,14 +8,13 @@ import com.example.productservice.repository.ProductRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication // Bu, bir Spring Boot uygulaması olduğunu belirten temel anotasyondur.
+@SpringBootApplication
 public class ProductServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProductServiceApplication.class, args);
 	}
 
-	// Ek: Uygulama başladığında otomatik veri eklemek için bir kod bloğu ekleyebiliriz (Opsiyonel ama faydalı).
 
     @Bean
     public CommandLineRunner loadData(ProductRepository productRepository) {

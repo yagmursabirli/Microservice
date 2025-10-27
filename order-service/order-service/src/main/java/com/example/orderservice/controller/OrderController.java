@@ -17,26 +17,22 @@ public class OrderController {
   @Autowired
   private OrderRepository orderRepository;
 
-  @Autowired // ProductClient'i enjekte ediyoruz.
+  @Autowired
   private ProductClient productClient;
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public String placeOrder(@RequestBody Order order) {
 
-    // 1. Ürünün varlığını kontrol et (Feign ile Product Service'i çağırır)
     ProductDto product = productClient.getProduct(order.getProductId());
 
     if (product == null) {
-      // Ürün bulunamazsa
       return "Sipariş verilemedi: Ürün ID " + order.getProductId() + " bulunamadı!";
     }
 
-    // 2. Sipariş oluşturma (Ürün bulundu)
     order.setOrderNumber(UUID.randomUUID().toString());
     orderRepository.save(order);
 
-    // 3. Başarı mesajı
     return "Sipariş Başarıyla Oluşturuldu! Sipariş No: " + order.getOrderNumber()
             + ". Sipariş edilen ürün: " + product.getName() + " (Fiyat: " + product.getPrice() + ")";
   }

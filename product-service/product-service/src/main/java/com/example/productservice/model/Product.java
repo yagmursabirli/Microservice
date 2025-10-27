@@ -5,18 +5,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity // Bu sınıfın bir JPA veritabanı varlığı (tablosu) olduğunu belirtir.
+@Entity
 public class Product {
 
-  @Id // Bu alanın birincil anahtar (Primary Key) olduğunu belirtir.
-  @GeneratedValue(strategy = GenerationType.IDENTITY) // ID'nin otomatik oluşturulmasını sağlar.
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String name;
   private double price;
 
-  // --- Constructor'lar ---
 
-  // JPA için gerekli olan parametresiz constructor
   public Product() {
   }
 
@@ -25,8 +23,6 @@ public class Product {
     this.price = price;
   }
 
-  // --- Getter ve Setter Metotları ---
-  // (Lombok kullanmadıysanız, bu metotları elle eklemeniz gerekir.)
 
   public Long getId() {
     return id;

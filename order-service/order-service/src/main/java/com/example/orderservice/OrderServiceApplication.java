@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients; // YENİ IMPORT
 
 @SpringBootApplication
-@EnableFeignClients // OpenFeign istemcilerini etkinleştirdik.
+@EnableFeignClients
 public class OrderServiceApplication {
 
 	public static void main(String[] args) {
